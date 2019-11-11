@@ -1,0 +1,184 @@
+﻿<Window
+    x:Class="DigtalSignatureDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DigtalSignatureDemo"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="550"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <StackPanel
+                Width="800"
+                Height="250"
+                Background="WhiteSmoke"
+                Orientation="Vertical">
+                <TextBlock
+                    Foreground="Brown"
+                    Style="{StaticResource MaterialDesignDisplay2TextBlock}"
+                    TextAlignment="Center">
+                    Digital Signature Demo
+                </TextBlock>
+                <Separator />
+                <StackPanel
+                    Height="189"
+                    Margin="20,10,20,5"
+                    Orientation="Horizontal">
+                    <StackPanel
+                        Width="400"
+                        Height="180"
+                        Orientation="Vertical">
+                        <StackPanel Margin="20px" Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox
+                                    x:Name="ipaddress_input"
+                                    Width="380"
+                                    HorizontalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="IP Address"
+                                    FontSize="18"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox
+                                    Name="port_input"
+                                    Width="380"
+                                    HorizontalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="PORT"
+                                    FontSize="18"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            </StackPanel>
+                            <StackPanel Margin="0,10,5,5" Orientation="Horizontal">
+                                <Button
+                                    Name="createconnectionbtn"
+                                    Width="180"
+                                    Margin="10px"
+                                    HorizontalAlignment="Left"
+                                    Background="#2d78ad"
+                                    Click="CreateConnectionButtonHandler"
+                                    Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton">
+                                    CREATE CONNECTION
+                                </Button>
+
+                                <Button
+                                    Name="connectbtn"
+                                    Width="120"
+                                    Margin="10px"
+                                    HorizontalAlignment="Right"
+                                    Background="#2d78ad"
+                                    Click="ConnectButtonHandler"
+                                    RenderTransformOrigin="0.672,0.534"
+                                    Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton">
+                                    CONNECT
+                                </Button>
+                            </StackPanel>
+
+
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel
+                        Margin="10"
+                        Background="white"
+                        Orientation="Vertical">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock
+                                Margin="15,10"
+                                HorizontalAlignment="Left"
+                                FontSize="18"
+                                Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                                Upload File
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <Button
+                                    Width="80"
+                                    Margin="15,10,5,5"
+                                    HorizontalAlignment="Left"
+                                    Background="#2d78ad"
+                                    Click="BrowseFileButtonHandler"
+                                    Content="Browse"
+                                    Style="{StaticResource MaterialDesignRaisedButton}"
+                                    ToolTip="Resource name: MaterialDesignRaisedButton" />
+                                <TextBlock
+                                    Name="selected_file"
+                                    Width="180px"
+                                    Margin="10px"
+                                    HorizontalAlignment="Stretch"
+                                    FontSize="20px"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                                    TextAlignment="Left"><Run Text="No File Choosen" /></TextBlock>
+
+                            </StackPanel>
+                        </StackPanel>
+                        <Button
+                            Height="45"
+                            Margin="15,15,15,15"
+                            HorizontalAlignment="Stretch"
+                            Background="#00b32d"
+                            BorderBrush="#00b32d"
+                            Content="Send"
+                            FontSize="20"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            ToolTip="Resource name: MaterialDesignRaisedButton" />
+                    </StackPanel>
+
+                </StackPanel>
+                <Separator Margin="10px" />
+
+            </StackPanel>
+            <StackPanel
+                Margin="10,10,10,10"
+                HorizontalAlignment="Stretch"
+                Orientation="Horizontal">
+                <StackPanel Margin="20,20,20,10" Orientation="Vertical">
+
+                    <TextBox
+                        Name="status_update"
+                        Width="250"
+                        Height="220"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint=""
+                        AcceptsReturn="True"
+                        BorderBrush="#8383fb"
+                        FontSize="16px"
+                        IsEnabled="False"
+                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
+                </StackPanel>
+
+
+                <StackPanel
+                    Width="484"
+                    Margin="0,20,0,0"
+                    Orientation="Vertical">
+                    <TextBox
+                        Name="status_ouput"
+                        Height="220"
+                        Margin="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        materialDesign:HintAssist.Hint=""
+                        AcceptsReturn="True"
+                        BorderBrush="#8383fb"
+                        FontSize="16px"
+                        IsEnabled="True"
+                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
